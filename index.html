@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rafael Henrique de Sousa Vieira">
+    <meta name="keywords"
+        content="programação, html, css, javascript, frontend mentor, Mario Game, Rafael Henrique de Sousa Vieira, Frontend, Front, end">
+    <meta name="robots" content="index, follow">
+    <meta name="description"
+        content="In this repository, a very simple Mario game is made, with a jump functionality. Using HTML, CSS and JAVASCRIPT">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/mario.gif">
+
+    <title>Mario Game</title>
+
+    <style>
+        :root {
+            --white: hsl(100, 100%, 100%);
+            --blue: hsl(223, 87%, 63%);
+            --very_dark_blue: hsl(209, 33%, 12%);
+            --black: hsl(0, 0%, 6%);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background-color: var(--black);
+        }
+
+        .game_board {
+            background-color: var(--white);
+            width: 80%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pipe {
+            position: absolute;
+            bottom: 0;
+            width: 80px;
+            animation: pipeAnimation 2s infinite linear;
+        }
+
+        @keyframes pipeAnimation {
+            from {
+                right: -80px;
+            }
+
+            to {
+                right: 100%;
+            }
+        }
+
+        .mario {
+            position: absolute;
+            bottom: 0;
+            width: 150px;
+            animation: jump 500ms;
+        }
+
+        @keyframes jump {
+            0% {
+                bottom: 0;
+            }
+
+            50% {
+                bottom: 180px;
+            }
+
+            100% {
+                bottom: 0;
+            }
+        }
+
+        .attribution {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            padding: 1rem 0;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .attribution p {
+            font-size: 12px;
+            color: var(--white);
+        }
+
+        .attribution a {
+            font-size: 12px;
+            color: var(--blue);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game_board">
+        <img class="mario" src="images/mario.gif" alt="mario.gif">
+        <img class="pipe" src="images/pipe.png" alt="pipe.png">
+    </div>
+
+    <footer class="attribution">
+        <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</p>
+        <p>Coded by <a href="https://github.com/RafaelHDSV" target="_blank">Rafael Henrique de Sousa Vieira</a>.</p>
+    </footer>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
