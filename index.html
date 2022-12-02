@@ -90,7 +90,7 @@
             transform: translate(-50.45%);
             top: 1.25rem;
             background-color: var(--orange);
-            width: 11.5rem;
+            width: 11.35rem;
             height: 4rem;
             border-radius: 1rem;
             z-index: 1;
@@ -147,6 +147,7 @@
 
         .clouds {
             position: absolute;
+            top: 1rem;
             width: 30rem;
             animation: cloudsAnimation 20s infinite linear;
         }
@@ -188,7 +189,7 @@
             <p>Points: </p>
             <span id="points">0</span>
         </div>
-        <div class="points_color"> </div>
+        <div class="points_color"></div>
 
         <img class="clouds" src="images/clouds.png" alt="clouds.png">
         <img class="mario" src="images/mario.gif" alt="mario.gif">
@@ -236,7 +237,7 @@
                 clearInterval(loop)
             }
 
-            // if (pipe.getAttribute(right) === '100%') {
+            // if (pipePosition == 100) {
             //     pointsCounter += 1
             //     points.innerHTML = pointsCounter
             // }
