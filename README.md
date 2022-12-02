@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Video URL: URL SOLUTION HERE
-- Live Site URL: URL SITE HERE
+- Video URL: https://www.youtube.com/watch?v=r9buAwVBDhA
+- Live Site URL: https://mario-game-rafael.netlify.app
 
 ### Screenshot
 
