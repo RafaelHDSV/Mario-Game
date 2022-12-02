@@ -1,0 +1,165 @@
+:root {
+    --white: hsl(100, 100%, 100%);
+    --light_gray: hsl(202, 100%, 95%);
+    --light_blue: hsl(197, 71%, 73%);
+    --green: hsl(120, 64%, 38%);
+    --orange: hsl(39, 100%, 60%);
+    --blue: hsl(223, 87%, 63%);
+    --very_dark_blue: hsl(209, 33%, 12%);
+    --black: hsl(0, 0%, 6%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: var(--black);
+}
+
+.game_board {
+    position: relative;
+    width: 90%;
+    height: 40rem;
+    background: linear-gradient(var(--light_blue), var(--light_gray));
+    border-bottom: 1rem solid var(--green);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.points {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%);
+    top: 1rem;
+    gap: .5rem;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 24px;
+    text-transform: uppercase;
+    user-select: none;
+    z-index: 2;
+}
+
+.points_color {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 50.45%;
+    transform: translate(-50.45%);
+    top: 1.25rem;
+    background-color: var(--orange);
+    width: 11.35rem;
+    height: 4rem;
+    border-radius: 1rem;
+    z-index: 1;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 5rem;
+    animation: pipeAnimation 2s infinite linear;
+}
+
+@keyframes pipeAnimation {
+    from {
+        right: -5rem;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+.mario {
+    position: absolute;
+    bottom: 0;
+    width: 8.5rem;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 12rem;
+    }
+
+    50% {
+        bottom: 12rem;
+    }
+
+    60% {
+        bottom: 12rem;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.clouds {
+    position: absolute;
+    top: 1rem;
+    width: 30rem;
+    animation: cloudsAnimation 20s infinite linear;
+}
+
+@keyframes cloudsAnimation {
+    from {
+        right: -30rem;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+.attribution {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 0;
+    text-align: center;
+    gap: 2rem;
+}
+
+.attribution p {
+    font-size: 12px;
+    color: var(--white);
+}
+
+.attribution a {
+    font-size: 12px;
+    color: var(--blue);
+}
