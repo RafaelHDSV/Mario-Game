@@ -53,6 +53,21 @@
             overflow: hidden;
         }
 
+        .points {
+            position: absolute;
+            top: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            left: 50%;
+            transform: translate(-50%);
+            top: 1rem;
+            gap: .5rem;
+            color: var(--white);
+            z-index: 1;
+        }
+
         .pipe {
             position: absolute;
             bottom: 0;
@@ -141,10 +156,16 @@
 
 <body>
     <div class="game_board">
+        <div class="points">
+            <p>Points: </p>
+            <span id="points">0</span>
+        </div>
+
         <img class="clouds" src="images/clouds.png" alt="clouds.png">
         <img class="mario" src="images/mario.gif" alt="mario.gif">
         <img class="pipe" src="images/pipe.png" alt="pipe.png">
     </div>
+
 
     <footer class="attribution">
         <p>Coded by <a href="https://github.com/RafaelHDSV" target="_blank">Rafael Henrique de Sousa Vieira</a>.</p>
@@ -154,6 +175,8 @@
         let mario = document.querySelector('.mario')
         let pipe = document.querySelector('.pipe')
         let clouds = document.querySelector('.clouds')
+        let points = document.getElementById('points')
+        let pointsCounter = 0
 
         document.addEventListener('keydown', () => {
             mario.classList.add('jump')
@@ -182,6 +205,11 @@
                 clouds.style.left = `${cloudsPosition}px`
 
                 clearInterval(loop)
+            }
+
+            if (pipePosition <= 16 && pipePosition >= -9) {
+                pointsCounter += 1
+                points.innerHTML = pointsCounter
             }
         }, 10);
     </script>
