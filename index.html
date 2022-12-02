@@ -20,6 +20,7 @@
             --light_gray: hsl(202, 100%, 95%);
             --light_blue: hsl(197, 71%, 73%);
             --green: hsl(120, 64%, 38%);
+            --orange: hsl(39, 100%, 60%);
             --blue: hsl(223, 87%, 63%);
             --very_dark_blue: hsl(209, 33%, 12%);
             --black: hsl(0, 0%, 6%);
@@ -64,7 +65,34 @@
             transform: translate(-50%);
             top: 1rem;
             gap: .5rem;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
             color: var(--white);
+            padding: 1rem 2rem;
+            font-size: 24px;
+            text-transform: uppercase;
+            user-select: none;
+            z-index: 2;
+        }
+
+        .points_color {
+            position: absolute;
+            top: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            left: 50.45%;
+            transform: translate(-50.45%);
+            top: 1.25rem;
+            background-color: var(--orange);
+            width: 11.5rem;
+            height: 4rem;
+            border-radius: 1rem;
             z-index: 1;
         }
 
@@ -160,6 +188,7 @@
             <p>Points: </p>
             <span id="points">0</span>
         </div>
+        <div class="points_color"> </div>
 
         <img class="clouds" src="images/clouds.png" alt="clouds.png">
         <img class="mario" src="images/mario.gif" alt="mario.gif">
@@ -207,10 +236,10 @@
                 clearInterval(loop)
             }
 
-            if (pipePosition <= 16 && pipePosition >= -9) {
-                pointsCounter += 1
-                points.innerHTML = pointsCounter
-            }
+            // if (pipe.getAttribute(right) === '100%') {
+            //     pointsCounter += 1
+            //     points.innerHTML = pointsCounter
+            // }
         }, 10);
     </script>
 </body>
