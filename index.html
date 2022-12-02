@@ -125,7 +125,6 @@
     </div>
 
     <footer class="attribution">
-        <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</p>
         <p>Coded by <a href="https://github.com/RafaelHDSV" target="_blank">Rafael Henrique de Sousa Vieira</a>.</p>
     </footer>
 
@@ -140,6 +139,16 @@
                 mario.classList.remove('jump')
             }, 500)
         })
+
+        const loop = setInterval(() => {
+            const pipePosition = pipe.offsetLeft
+            const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', "")
+
+            if (pipePosition <= 120 && marioPosition < 80 && pipePosition > 0) {
+                pipe.style.animation = 'none'
+                pipe.style.left = `${pipePosition}px`
+            }
+        }, 10);
     </script>
 </body>
 
