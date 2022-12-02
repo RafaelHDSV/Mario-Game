@@ -17,6 +17,9 @@
     <style>
         :root {
             --white: hsl(100, 100%, 100%);
+            --light_gray: hsl(202, 100%, 95%);
+            --light_blue: hsl(197, 71%, 73%);
+            --green: hsl(120, 64%, 38%);
             --blue: hsl(223, 87%, 63%);
             --very_dark_blue: hsl(209, 33%, 12%);
             --black: hsl(0, 0%, 6%);
@@ -41,10 +44,12 @@
         }
 
         .game_board {
-            background-color: var(--white);
-            width: 80%;
-            height: 500px;
             position: relative;
+            width: 90%;
+            height: 500px;
+            background: linear-gradient(var(--light_blue), var(--light_gray));
+            border-bottom: 1rem solid var(--green);
+            border-radius: 1rem;
             overflow: hidden;
         }
 
@@ -97,6 +102,22 @@
             }
         }
 
+        .clouds {
+            position: absolute;
+            width: 550px;
+            animation: cloudsAnimation 20s infinite linear;
+        }
+
+        @keyframes cloudsAnimation {
+            from {
+                right: -550px;
+            }
+
+            to {
+                right: 100%;
+            }
+        }
+
         .attribution {
             display: block;
             position: absolute;
@@ -120,6 +141,7 @@
 
 <body>
     <div class="game_board">
+        <img class="clouds" src="images/clouds.png" alt="clouds.png">
         <img class="mario" src="images/mario.gif" alt="mario.gif">
         <img class="pipe" src="images/pipe.png" alt="pipe.png">
     </div>
@@ -153,6 +175,8 @@
                 mario.src = 'images/game-over.png'
                 mario.style.width = '75px'
                 mario.style.marginLeft = '50px'
+
+                clearInterval(loop)
             }
         }, 10);
     </script>
