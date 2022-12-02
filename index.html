@@ -46,7 +46,7 @@
         .game_board {
             position: relative;
             width: 90%;
-            height: 500px;
+            height: 40rem;
             background: linear-gradient(var(--light_blue), var(--light_gray));
             border-bottom: 1rem solid var(--green);
             border-radius: 1rem;
@@ -56,13 +56,13 @@
         .pipe {
             position: absolute;
             bottom: 0;
-            width: 80px;
+            width: 5rem;
             animation: pipeAnimation 2s infinite linear;
         }
 
         @keyframes pipeAnimation {
             from {
-                right: -80px;
+                right: -5rem;
             }
 
             to {
@@ -73,7 +73,7 @@
         .mario {
             position: absolute;
             bottom: 0;
-            width: 150px;
+            width: 8.5rem;
         }
 
         .jump {
@@ -86,15 +86,15 @@
             }
 
             40% {
-                bottom: 180px;
+                bottom: 12rem;
             }
 
             50% {
-                bottom: 180px;
+                bottom: 12rem;
             }
 
             60% {
-                bottom: 180px;
+                bottom: 12rem;
             }
 
             100% {
@@ -104,13 +104,13 @@
 
         .clouds {
             position: absolute;
-            width: 550px;
+            width: 30rem;
             animation: cloudsAnimation 20s infinite linear;
         }
 
         @keyframes cloudsAnimation {
             from {
-                right: -550px;
+                right: -30rem;
             }
 
             to {
@@ -153,6 +153,7 @@
     <script>
         let mario = document.querySelector('.mario')
         let pipe = document.querySelector('.pipe')
+        let clouds = document.querySelector('.clouds')
 
         document.addEventListener('keydown', () => {
             mario.classList.add('jump')
@@ -165,6 +166,7 @@
         const loop = setInterval(() => {
             const pipePosition = pipe.offsetLeft
             const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', "")
+            const cloudsPosition = clouds.offsetLeft
 
             if (pipePosition <= 120 && marioPosition < 80 && pipePosition > 0) {
                 pipe.style.animation = 'none'
@@ -175,6 +177,9 @@
                 mario.src = 'images/game-over.png'
                 mario.style.width = '75px'
                 mario.style.marginLeft = '50px'
+
+                clouds.style.animation = 'none'
+                clouds.style.left = `${cloudsPosition}px`
 
                 clearInterval(loop)
             }
