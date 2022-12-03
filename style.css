@@ -27,6 +27,11 @@ body {
     background-color: var(--black);
 }
 
+.game_start {
+    position: absolute;
+    z-index: 3;
+}
+
 .game_board {
     position: relative;
     width: 90%;
