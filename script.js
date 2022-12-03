@@ -2,7 +2,14 @@ let mario = document.querySelector('.mario')
 let pipe = document.querySelector('.pipe')
 let clouds = document.querySelector('.clouds')
 let points = document.getElementById('points')
+let gameStart = document.querySelector('.game_start')
+let gameBoard = document.querySelector('.game_board')
+let btnStart = document.querySelector('.btn_start')
 let pointsCounter = 0
+
+btnStart.addEventListener('click', () => {
+    window.location.reload()
+})
 
 document.addEventListener('keydown', () => {
     mario.classList.add('jump')
@@ -12,10 +19,22 @@ document.addEventListener('keydown', () => {
     }, 500)
 })
 
+document.addEventListener('click', () => {
+    mario.classList.add('jump')
+
+    setTimeout(() => {
+        mario.classList.remove('jump')
+    }, 500)
+})
+
 const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft
+    const pipePositionRight = +window.getComputedStyle(pipe).right.replace('px', '')
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', "")
     const cloudsPosition = clouds.offsetLeft
+
+    gameStart.style.display = 'none'
+    gameBoard.style.display = 'flex'
 
     if (pipePosition <= 120 && marioPosition < 80 && pipePosition > 0) {
         pipe.style.animation = 'none'
@@ -31,10 +50,13 @@ const loop = setInterval(() => {
         clouds.style.left = `${cloudsPosition}px`
 
         clearInterval(loop)
+
+        gameStart.style.display = 'flex'
+
     }
 
-    // if (+window.getComputedStyle(pipe).right.replace('rem', '') >= -5) {
-    //     pointsCounter += 1
-    //     points.innerHTML = pointsCounter
-    // }
+    if (pipePositionRight <= 5 && pipePositionRight >= -5) {
+        pointsCounter += 1
+        points.innerHTML = pointsCounter
+    }
 }, 10);
