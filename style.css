@@ -42,16 +42,23 @@ body {
     overflow: hidden;
 }
 
-.points {
-    position: absolute;
-    top: 0;
+.counters {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    left: 50%;
-    transform: translate(-50%);
-    top: 1rem;
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+    height: 6rem;
+}
+
+.points,
+.max {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: .5rem;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -65,9 +72,11 @@ body {
     text-transform: uppercase;
     user-select: none;
     z-index: 2;
+    position: relative;
 }
 
-.points_color {
+.points_color,
+.max_color {
     position: absolute;
     top: 0;
     display: flex;

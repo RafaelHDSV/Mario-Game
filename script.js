@@ -55,7 +55,7 @@ const loop = setInterval(() => {
 
     }
 
-    if (pipePositionRight <= 5 && pipePositionRight >= -5) {
+    if (pipePositionRight <= 7 && pipePositionRight >= -7) {
         pointsCounter += 1
         points.innerHTML = pointsCounter
     }
