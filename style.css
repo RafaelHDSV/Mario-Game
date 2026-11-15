@@ -200,3 +200,14 @@ body {
     font-size: 12px;
     color: var(--blue);
 }
+
+/* board22 visit-count */
+footer #va-visits, .attribution #va-visits {
+  color: inherit;
+  font-size: inherit;
+  margin-top: 0.25rem;
+}
+
+/* board22 mario contrast */
+footer.attribution, footer.attribution #va-visits { color: #fff; }
+footer.attribution a { color: #fca5a5; }
